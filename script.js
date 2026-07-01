@@ -9,8 +9,8 @@ const songNameTxt = document.getElementById("songName");
 
 // قائمة الأغاني بالمسارات الصحيحة
 const playlist = [
-    { src: "assets/music/song1.mp3", name: "الأغنية الأولى 💖" },
-    { src: "assets/music/song2.mp3", name: "الأغنية الثانية 💕" }
+    { src: "assets/Music/song1.mp3", name: "الأغنية الأولى 💖" },
+    { src: "assets/Music/song2.mp3", name: "الأغنية الثانية 💕" }
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
