@@ -9,6 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <audio id="music">
+        <source src="assets/music/song1.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="bottom-player-container">
+        <div class="player-wrapper">
+            <div class="player-left">
+                <div class="player-avatar">
+                    <img src="assets/images/1.jpg" alt="Music Cover">
+                </div>
+                <div class="player-info">
+                    <span id="songName" class="player-song-title">نور عيني 😍</span>
+                    <span class="player-artist">Our Story</span>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <button id="prevSong" class="player-btn">⏮</button>
+                <button id="toggleMusic" class="player-play-btn">▶</button>
+                <button id="nextSong" class="player-btn">⏭</button>
+            </div>
+        </div>
+    </div>
 
 
     <div class="hearts"></div>
