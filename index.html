@@ -9,18 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="music-controls-box" style="text-align: center; margin: 15px auto; max-width: 200px;">
-    <button id="prevSong" class="next-badge" style="padding: 5px 15px; cursor: pointer;">⏮</button>
-    <button id="toggleMusic" class="next-badge" style="padding: 5px 20px; cursor: pointer; font-size: 16px;">🎵 Play</button>
-    <button id="nextSong" class="next-badge" style="padding: 5px 15px; cursor: pointer;">⏭</button>
-    <p id="songName" style="font-size: 12px; color: #ff4d6d; margin-top: 5px; font-weight: bold;">الأغنية الأولى 💖</p>
-</div>
-
-    <audio id="music">
-    <source src="assets/music/song1.mp3" type="audio/mp3">
-</audio>
-        <source src="assets/music/song2.mp3" type="audio/mp3">
-    </audio>
 
     <div class="hearts"></div>
 
@@ -146,19 +134,20 @@
                         </div>
                         <p class="image-caption">كل تفصيلة معاكي بتخليني متأكد إنك أحلى حاجة حصلت في حياتي 😍</p>
                     </section>
-                    <section class="card-box fade-in">
-    <div class="gallery-item">
-        <img src="assets/images/5.jpg" alt="Memory 5">
-    </div>
-    <p class="image-caption">هنا اكتب الكلام أو الذكرى الخاصة بالصورة الخامسة 💖</p>
-</section>
 
-<section class="card-box fade-in">
-    <div class="gallery-item">
-        <img src="assets/images/6.jpg" alt="Memory 6">
-    </div>
-    <p class="image-caption">هنا اكتب الكلام أو الذكرى الخاصة بالصورة السادسة 😍</p>
-</section>
+                    <section class="card-box fade-in">
+                        <div class="gallery-item">
+                            <img src="assets/images/5.jpg" alt="Memory 5">
+                        </div>
+                        <p class="image-caption">هنا اكتب الكلام أو الذكرى الخاصة بالصورة الخامسة 💖</p>
+                    </section>
+
+                    <section class="card-box fade-in">
+                        <div class="gallery-item">
+                            <img src="assets/images/6.jpg" alt="Memory 6">
+                        </div>
+                        <p class="image-caption">هنا اكتب الكلام أو الذكرى الخاصة بالصورة السادسة 😍</p>
+                    </section>
 
                     <div class="next-btn-wrapper" style="margin-top: 5px; margin-bottom: 20px;">
                         <span class="next-badge">💖 message 💖</span>
@@ -177,8 +166,33 @@
                     <button id="replay" class="replay-btn">❤ Replay Our Story</button>
                 </section>
 
-            </div> </div>
+            </div> 
+        </div>
     </main>
+
+    <audio id="music">
+        <source src="assets/music/song1.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="bottom-player-container">
+        <div class="player-wrapper">
+            <div class="player-right-side">
+                <div class="player-avatar">
+                    <img src="assets/images/1.jpg" alt="Music Cover">
+                </div>
+                <div class="player-info">
+                    <span id="songName" class="player-song-title">الأغنية الأولى 💖</span>
+                    <span class="player-artist">Our Story</span>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <button id="prevSong" class="player-btn">⏮</button>
+                <button id="toggleMusic" class="player-play-btn">▶</button>
+                <button id="nextSong" class="player-btn">⏭</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
