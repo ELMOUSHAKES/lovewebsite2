@@ -7,12 +7,16 @@ const container = document.querySelector(".container");
 const error = document.getElementById("error");
 const music = document.getElementById("music");
 
+// عناصر التحكم بصفحة القصص وزر الـ next الجديد
+const nextBtn = document.getElementById("nextBtn");
+const storyContent = document.getElementById("storyContent");
+
 function openSite() {
     loader.style.opacity = "0";
     setTimeout(() => {
         loader.style.display = "none";
         container.style.display = "block";
-    }, 600); // إعطاء مسافة تأثير التلاشي الناعم لشاشة القفل
+    }, 600);
 
     if (music) {
         music.play().catch(() => {});
@@ -33,22 +37,41 @@ password.addEventListener("keydown", (e) => {
     }
 });
 
-// =====================
-// العداد التنازلي المطور والحي (ثانية بثانية)
-// =====================
-const startDate = new Date("2025-05-24T00:00:00").getTime();
+// ==========================================
+// منطق زر الـ Next لإظهار المحتوى وبدء السكرول
+// ==========================================
+if(nextBtn && storyContent) {
+    nextBtn.addEventListener("click", () => {
+        // إظهار المحتوى التنازلي والصور
+        storyContent.classList.add("show-content");
+        
+        // إخفاء زر النكست الحالي ليعطي شكلاً احترافياً ونظيفاً
+        nextBtn.style.display = "none";
+        
+        // عمل سكرول تلقائي مريح وبسيط ينزل لأول بطاقة جديدة تظهر
+        setTimeout(() => {
+            const firstChild = storyContent.firstElementChild;
+            if(firstChild) {
+                firstChild.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }, 100);
+        
+        // تشغيل تأثير التايبينج (الكتابة التلقائية) فور ظهور الرسائل الأخيرة
+        startTypingEffect();
+    });
+}
 
+// العداد التنازلي المستمر
+const startDate = new Date("2025-05-24T00:00:00").getTime();
 function updateCountdown() {
     const now = new Date().getTime();
     const difference = now - startDate;
 
-    // الحسابات الرياضية للوقت المنقضي
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    // ربط العناصر الحية بالـ HTML وتنسيق الأرقام لتصبح خانتين
     if(document.getElementById("days")){
         document.getElementById("days").innerText = days;
         document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
@@ -56,63 +79,50 @@ function updateCountdown() {
         document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
     }
 }
-// تحديث لحظي كل ثانية
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-
-// =====================
-// Floating Hearts (القلوب الوردية المتطايرة بالخلفية)
-// =====================
+// القلوب المتساقطة بالخلفية
 const heartsContainer = document.querySelector(".hearts");
-
 function createHeart(){
     if(!heartsContainer) return;
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerHTML = "❤"; // استخدام رمز القلب القياسي ليتوافق مع جميع الشاشات بشكل رومانسي وردي
+    heart.innerHTML = "❤";
 
-    // إعطاء قيم وأحجام عشوائية لتوزع طبيعي ومريح للعين
     heart.style.left = Math.random() * 100 + "%";
     heart.style.fontSize = (14 + Math.random() * 20) + "px";
     heart.style.animationDuration = (4 + Math.random() * 4) + "s";
     
-    // تلوين القلوب بدرجات الوردي والأحمر الفاتح كالفيديو تماماً
     const colors = ["#ff4d6d", "#ff7eb3", "#ff8ab8", "#ffccd5"];
     heart.style.color = colors[Math.floor(Math.random() * colors.length)];
 
     heartsContainer.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
+    setTimeout(() => { heart.remove(); }, 8000);
 }
 setInterval(createHeart, 350);
 
+// تأثير الكتابة (تم تحويله لدالة يتم استدعاؤها عند الضغط على الزر)
+function startTypingEffect() {
+    const typing = document.getElementById("typing");
+    if (typing && typing.getAttribute( data-started ) !==  true ) {
+        typing.setAttribute( data-started ,  true );
+        const text = typing.innerHTML;
+        typing.innerHTML = "";
+        let i = 0;
 
-// =====================
-// Typing Effect
-// =====================
-const typing = document.getElementById("typing");
-
-if (typing) {
-    const text = typing.innerHTML;
-    typing.innerHTML = "";
-    let i = 0;
-
-    function write() {
-        if (i < text.length) {
-            typing.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(write, 50);
+        function write() {
+            if (i < text.length) {
+                typing.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(write, 50);
+            }
         }
+        setTimeout(write, 500);
     }
-    // الانتظار قليلاً قبل بدء الكتابة لتظهر مع السكرول
-    setTimeout(write, 1200);
 }
 
-
-// Replay button
+// زر الـ Replay للعودة لأول الصفحة
 const replay = document.getElementById("replay");
 if(replay){
     replay.onclick = () => {
