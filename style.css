@@ -1,0 +1,338 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-snap-type:y mandatory;
+}
+
+body{
+    font-family: Poppins ,sans-serif;
+    background:#111;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===========================
+   PASSWORD SCREEN
+=========================== */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff7eb3,#ff4d88,#ff2d75);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:.6s;
+}
+
+.glass{
+
+    width:90%;
+    max-width:360px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.glass h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    opacity:.85;
+
+    margin-bottom:20px;
+
+}
+
+.glass input{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    font-size:17px;
+
+    margin-bottom:15px;
+
+}
+
+.glass button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:white;
+
+    color:#ff2d75;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.glass button:hover{
+
+    transform:scale(1.05);
+
+}
+
+#error{
+
+    margin-top:15px;
+
+    color:white;
+
+}
+
+/* ===========================
+   MAIN
+=========================== */
+
+.container{
+
+    display:none;
+
+}
+
+.page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    scroll-snap-align:start;
+
+}
+
+/* ===========================
+   INTRO PAGE
+=========================== */
+
+.intro{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:linear-gradient(180deg,#ff7eb3,#ff4d88);
+
+}
+
+.intro-content{
+
+    width:100%;
+
+    max-width:700px;
+
+}
+
+.intro-content h1{
+
+    font-size:48px;
+
+    margin-bottom:25px;
+
+}
+
+.intro-content p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+}
+
+.counter-box{
+
+    margin-top:35px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:20px;
+
+}
+
+#counter{
+
+    margin-top:10px;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+.scroll{
+
+    margin-top:40px;
+
+    font-size:34px;
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(12px);
+
+}
+
+}
+/* ===========================
+   PHOTO PAGES
+=========================== */
+
+.photo-page{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.photo-page img{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform 8s ease;
+
+}
+
+.photo-page:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* Overlay */
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        rgba(0,0,0,.15),
+
+        rgba(0,0,0,.45),
+
+        rgba(0,0,0,.8)
+
+    );
+
+}
+
+/* Caption */
+
+.caption{
+
+    position:absolute;
+
+    bottom:45px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    max-width:650px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    padding:22px;
+
+    z-index:5;
+
+}
+
+.caption h2{
+
+    font-size:34
