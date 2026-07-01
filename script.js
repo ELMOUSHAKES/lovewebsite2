@@ -2,7 +2,7 @@
 // PASSWORD
 // =========================
 
-const PASSWORD = "1234"; // غير الباسورد
+const PASSWORD = "joo"; // غير الباسورد
 
 const loader = document.querySelector(".loader");
 const container = document.querySelector(".container");
