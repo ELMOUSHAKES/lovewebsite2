@@ -1,32 +1,31 @@
-// =========================
-// PASSWORD
-// =========================
+const PASSWORD = "joo";
 
-const PASSWORD = "joo"; // غير الباسورد
-
-const loader = document.querySelector(".loader");
-const container = document.querySelector(".container");
 const unlock = document.getElementById("unlock");
 const password = document.getElementById("password");
+const loader = document.querySelector(".loader");
+const container = document.querySelector(".container");
 const error = document.getElementById("error");
 const music = document.getElementById("music");
 
-function openWebsite(){
+function openSite() {
+    loader.style.display = "none";
+    container.style.display = "block";
 
-    loader.style.opacity = "0";
-
-    setTimeout(()=>{
-
-        loader.style.display = "none";
-
-        container.style.display = "block";
-
-        music.play().catch(()=>{});
-
-    },600);
-
+    if (music) {
+        music.play().catch(() => {});
+    }
 }
 
-unlock.onclick = ()=>{
+unlock.addEventListener("click", () => {
+    if (password.value.trim() === PASSWORD) {
+        openSite();
+    } else {
+        error.textContent = "💖 Wrong Password";
+    }
+});
 
-   
+password.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        unlock.click();
+    }
+});
