@@ -52,9 +52,8 @@ if(nextBtn && storyContent) {
         startTypingEffect();
     });
 }
-
-// دالة العداد الزمني المنظم والحي
-const startDate = new Date("2025-05-24T00:00:00").getTime();
+// العداد 
+const startDate = new Date("2026-04-27T00:00:00").getTime();
 function updateCountdown() {
     const now = new Date().getTime();
     const difference = now - startDate;
