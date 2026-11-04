@@ -197,3 +197,4 @@ if (replay) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 }
+console.log("%cMade by Youssef Ahmed", "color:#00d1b2;font-size:16px;font-weight:bold;");
