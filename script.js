@@ -176,7 +176,7 @@ setInterval(createHeart, 350);
 
 function startTypingEffect() {
     const typing = document.getElementById("typing");
-    if (typing && typing.getAttribute( data-started ) !==  true ) {
+    if (typing && typing.getAttribute("data-started") !== "true") {
         typing.setAttribute( data-started ,  true );
         const text = typing.innerHTML;
         typing.innerHTML = "";
