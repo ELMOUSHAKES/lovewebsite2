@@ -190,11 +190,10 @@ function startTypingEffect() {
         setTimeout(write, 500);
     }
 }
-
+console.log("Developed by Youssef Ahmed | github.com/ELMOUSHAKES");
 const replay = document.getElementById("replay");
 if (replay) {
     replay.onclick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        System.out.println("Developed by Youssef Ahmed | github.com/ELMOUSHAKES");
     };
 }
