@@ -195,6 +195,6 @@ const replay = document.getElementById("replay");
 if (replay) {
     replay.onclick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        console.log("%cMade by Youssef Ahmed", "color:#00d1b2;font-size:16px;font-weight:bold;");
+        System.out.println("Developed by Youssef Ahmed | github.com/ELMOUSHAKES");
     };
 }
