@@ -1,3 +1,5 @@
+console.log("Developed by Youssef Ahmed | github.com/ELMOUSHAKES");
+
 const PASSWORD = "My Life😍";
 
 // 1. تعريف عناصر التحكم في الموسيقى أولاً عشان المتصفح يشوفها
