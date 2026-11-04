@@ -132,7 +132,7 @@ if (nextBtn && storyContent) {
 }
 
 // العداد التنازلي
-const startDate = new Date("2026-04-27T00:00:00").getTime();
+const startDate = new Date("2026-09-01T00:00:00").getTime();
 function updateCountdown() {
     const now = new Date().getTime();
     const difference = now - startDate;
